@@ -10,7 +10,7 @@ class ChemicalTest extends PHPUnit_Framework_TestCase{
 
 	public function test_simple_instance(){
 		$c = new Chemical();	
-		$this->assertType('object', $c);
+		$this->assertTrue(gettype($c)=='object');
 	}
 
 	public function test_type_data_instance(){
