@@ -4,9 +4,13 @@ php-organic
 Organic development in php
 (require PHP>=5.3)
 
+Release
+=============
+0.0.11
+
 Based on node-organic
 =====
-https://github.com/outbounder/node-organic
+https://github.com/VarnaLab/node-organic
 
 Wisdom
 =====
