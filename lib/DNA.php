@@ -9,7 +9,7 @@ class DNA{
 		}
 	}
 
-	// more funcions... :)
+	// more functions... :)
 
 	function selectBranch($namespace) {
 	  if($namespace == "")
@@ -28,7 +28,7 @@ class DNA{
 	  return $b;
 	}
 
-	// more funcions... :)
+	// more functions... :)
 
 }
 
