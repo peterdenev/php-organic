@@ -1,24 +1,19 @@
 <?php
+require 'api/iPlasma.php';
 
-class Plasma{
+
+class Plasma implements iPlasma{
 	
 	var $_listeners = array();
 
-	function emit($chemical, $sender, $callback=null){
-		if(is_callable($sender)){
-			$callback = $sender;
-			$sender = null;
-		}
-
+	function emit($chemical, $callback=null){
+		require_once 'Chemical.php';
+	  	$chemical = $chemical instanceof Chemical ? $chemical : new Chemical($chemical);
+		
 		for($i=0; $i<count($this->_listeners); $i++){
-			$listener = $this->_listeners[$i];
-
-			// prevent emitting to self
-		    if(isset($sender) && $sender == $listener['context'])
-		      continue;
-		  
+			$listener = $this->_listeners[$i];	
 		  	// if chemical.type matches pattern as string
-		    if(($chemical->type && $listener['chemicalPattern'] === $chemical->type) ||
+		    if((isset($chemical->type) && $listener['chemicalPattern'] === $chemical->type) ||
 		    // or matches by type instance 		    	
 		      (is_callable($listener['chemicalPattern']) && $chemical instanceof $listener['chemicalPattern']) ||
 		    // or matched by chemical type only
@@ -30,8 +25,8 @@ class Plasma{
 		        $i -= 1;
 		      }
 
-		      $chemicalRecieved = $listener['handle']($chemical, $sender, $callback);
-
+		      $chemicalRecieved = $listener['handle']($chemical, $callback);
+		      
 		      // in case plasma organelles received the chemical, further iterations are not allowed.
 		      if($chemicalRecieved !== false)
 		        return;

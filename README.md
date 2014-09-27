@@ -6,7 +6,7 @@ Organic development in php
 
 Release
 =============
-0.0.11
+0.2
 
 Based on node-organic
 =====
