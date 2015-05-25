@@ -1,6 +1,6 @@
 <testsuites>
   <testsuite name="PHP-Organic Test Suite">
-    <directory>*Test.php files</directory>  
+    <directory>./tests/</directory>  
     <!--<file>/path/to/MyTest.php</file> -->
     <!--<exclude>/path/to/exclude</exclude> -->
   </testsuite>
