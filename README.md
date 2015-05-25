@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/peterdenev/php-organic.svg?branch=travis)](https://travis-ci.org/peterdenev/php-organic)
+
 php-organic
 ============
 
