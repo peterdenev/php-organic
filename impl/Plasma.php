@@ -1,12 +1,12 @@
 <?php
-require 'api/iPlasma.php';
+require_once 'api/iPlasma.php';
 
 
 class Plasma implements iPlasma{
 	
-	var $_listeners = array();
+	var $_listeners = [];
 
-	function emit($chemical, $callback=null){
+	function emit($chemical, Callable $callback=null){
 		require_once 'Chemical.php';
 	  	$chemical = $chemical instanceof Chemical ? $chemical : new Chemical($chemical);
 		
@@ -34,26 +34,28 @@ class Plasma implements iPlasma{
 		}
 	}
 
-	function once($chemicalPattern, $handler, $context=null) {		
+	function once(String $chemicalPattern, Callable $handler, $context=null) {		
 		array_push($this->_listeners, 
-			array(	"chemicalPattern" => $chemicalPattern,
-					"handle"=> $handler,
-					"context"=> $context,
-					"once"=> true
-				)					
+			[	
+				"chemicalPattern" => $chemicalPattern,
+				"handle"=> $handler,
+				"context"=> $context,
+				"once"=> true
+			]					
 		);		
 	}
 
-	function on($chemicalPattern, $handler, $context=null){		
+	function on(String $chemicalPattern, Callable $handler, $context=null){		
 		array_push( $this->_listeners,
-			array(	"chemicalPattern" => $chemicalPattern,
-					"handle"=> $handler,
-					"context"=> $context					
-			)	
+			[	
+				"chemicalPattern" => $chemicalPattern,
+				"handle"=> $handler,
+				"context"=> $context					
+			]
 		);		
 	}
 
-	function off($chemicalPattern, $handler){
+	function off(String $chemicalPattern, Callable $handler){
 	  	for($i = 0; $i<count($this->_listeners); $i++) {
 	    	$listener = $this->_listeners[$i];
 	    	if($listener->chemicalPattern == $chemicalPattern && $listener->handle == $handler)

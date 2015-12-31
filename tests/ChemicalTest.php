@@ -14,8 +14,8 @@ class ChemicalTest extends PHPUnit_Framework_TestCase{
 	}
 
 	public function test_assoc_arr_data_instance(){
-		$c = new Chemical( array("type"=>"value",
-								 "data"=>array("prop"=>"v")) );	
+		$c = new Chemical( ["type"=>"value",
+								 "data"=>["prop"=>"v"]] );	
 		$this->assertEquals('value', $c->type);
 		$this->assertEquals("v", $c->data['prop']);
 	} 

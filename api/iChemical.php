@@ -1,7 +1,7 @@
 <?php
 
 interface iChemical{
-	function __construct($data=null);
+	function __construct(array $data=null);
 
 }
 

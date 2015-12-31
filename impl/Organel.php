@@ -1,9 +1,10 @@
 <?php
 
-require 'api/iOrganel.php';
+require_once 'api/iOrganel.php';
+require_once 'api/iPlasma.php';
 
 abstract class Organel implements iOrganel{
-	function __construct($plasma, $config){
+	function __construct(iPlasma $plasma, array $config){
 		$this->plasma = $plasma;
 		$this->config = $config;
 		$that = &$this;

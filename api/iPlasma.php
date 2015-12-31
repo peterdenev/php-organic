@@ -2,13 +2,13 @@
 
 interface iPlasma{
 	
-	function emit($chemical, $callback=null);
+	function emit($chemical, Callable $callback=null);
 
-	function once($chemicalPattern, $handler, $context=null);
+	function once(String $chemicalPattern, Callable $handler, $context=null);
 
-	function on($chemicalPattern, $handler, $context=null);
+	function on(String $chemicalPattern, Callable $handler, $context=null);
 
-	function off($chemicalPattern, $handler);
+	function off(String $chemicalPattern, Callable $handler);
 
 }
 

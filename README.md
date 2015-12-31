@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/peterdenev/php-organic.svg?branch=travis)](https://travis-ci.org/peterdenev/php-organic)
+[![Build Status](https://travis-ci.org/peterdenev/php-organic.svg?branch=php7)](https://travis-ci.org/peterdenev/php-organic)
 
 php-organic
 ============
 
 Organic development in php
-(require PHP>=5.3)
+(require PHP>=7.0)
 
 Release
 =============

@@ -1,18 +1,20 @@
 <?php
-require 'api/iNucleus.php';
-require 'DNA.php';
-require 'Chemical.php';
+require_once 'api/iNucleus.php';
+require_once 'api/iPlasma.php';
+require_once 'api/iChemical.php';
+require_once 'DNA.php';
+require_once 'Chemical.php';
 
 class Nucleus implements iNucleus{
 		
-	function __construct($plasma, $dna){
+	function __construct(iPlasma $plasma, $dna){
 	  $this->dna = $dna instanceof DNA ? $dna : new DNA($dna);	  
 	  $this->plasma = $plasma;	  
 	}
 
 
-	function build($chemical, $callback=null){	
-	  $result = array();	  
+	function build($chemical, Callable $callback=null) : array{	
+	  $result = [];	  
 	  $chemical = $chemical instanceof Chemical ? $chemical : new Chemical($chemical);
 	  if(!isset($chemical->branch))
 	      throw new Exception("can not build object without branch with chemical ".print_r($chemical, true));

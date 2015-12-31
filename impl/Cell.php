@@ -1,8 +1,8 @@
 <?php
 
-require 'api/iCell.php';
-require 'Plasma.php';
-require 'Nucleus.php';
+require_once 'api/iCell.php';
+require_once 'Plasma.php';
+require_once 'Nucleus.php';
 
 class Cell implements iCell{
 	function __construct($dna) {	
@@ -11,7 +11,7 @@ class Cell implements iCell{
 		  
 		$nucleus = new Nucleus($this->plasma, $dna);		  
 		
-		$this->organelles = $nucleus->build(array('type'=>'plasma', 'branch'=>'organelles'));
+		$this->organelles = $nucleus->build(['type'=>'plasma', 'branch'=>'organelles']);
 		
 	}
 
